@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :agents
   devise_for :travellers
-  devise_for :users
+
   root to: 'pages#home'
 
   resources :agents, only: [:show]
