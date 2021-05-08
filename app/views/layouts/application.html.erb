@@ -12,7 +12,10 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <% if agent_signed_in? %>
+      <%= render 'shared/agent_navbar' %>
+    <% end %>
+
     <%= render 'shared/flashes' %>
 
     <%= yield %>
