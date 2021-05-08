@@ -14,6 +14,10 @@
   <body>
     <% if agent_signed_in? %>
       <%= render 'shared/agent_navbar' %>
+    <% elsif traveller_signed_in? %>
+      <%= render 'shared/traveller_navbar' %>
+    <% else %>
+      <%= render 'shared/both_navbar' %>
     <% end %>
 
     <%= render 'shared/flashes' %>
