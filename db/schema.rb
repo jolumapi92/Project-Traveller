@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_164207) do
+ActiveRecord::Schema.define(version: 2021_05_08_165059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,22 @@ ActiveRecord::Schema.define(version: 2021_05_08_164207) do
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_agents_on_email", unique: true
     t.index ["reset_password_token"], name: "index_agents_on_reset_password_token", unique: true
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.date "start"
+    t.date "end"
+    t.string "hotel"
+    t.string "country"
+    t.string "city"
+    t.string "transport"
+    t.integer "occupants"
+    t.bigint "traveller_id", null: false
+    t.bigint "agent_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["agent_id"], name: "index_events_on_agent_id"
+    t.index ["traveller_id"], name: "index_events_on_traveller_id"
   end
 
   create_table "travellers", force: :cascade do |t|
@@ -59,4 +75,6 @@ ActiveRecord::Schema.define(version: 2021_05_08_164207) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "agents"
+  add_foreign_key "events", "travellers"
 end
