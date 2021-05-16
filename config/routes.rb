@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :agents, only: [:show]
+
   resources :locations do
     resources :activities
   end

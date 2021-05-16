@@ -1,0 +1,9 @@
+<h1>Crear una actividad</h1>
+
+<%= simple_form_for [@location, @activity] do |t| %>
+    <%= t.input :name %>
+    <%= t.input :category %>
+    <%= t.input :place %>
+    <%= t.input :points %>
+    <%= t.submit "Create Location" %>
+<% end %>
