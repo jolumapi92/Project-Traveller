@@ -12,6 +12,10 @@
 </section>
 <section class="bg-home2">
   <h1><em>Your most memorable vacations just clicks away!</em></h1>
+  <% @locations = Location.all %>
+  <% @locations.each do |location| %>
+  <%= location.name %>
+  <% end %>
 </section>
 <section class="bg-home3">
   <h1><em>All your activities and passes on your palm</em></h1>
