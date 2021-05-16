@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_165809) do
+ActiveRecord::Schema.define(version: 2021_05_16_005023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2021_05_08_165809) do
     t.integer "points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "location_id", null: false
+    t.index ["location_id"], name: "index_activities_on_location_id"
   end
 
   create_table "agents", force: :cascade do |t|
@@ -65,6 +67,14 @@ ActiveRecord::Schema.define(version: 2021_05_08_165809) do
     t.index ["traveller_id"], name: "index_events_on_traveller_id"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "coordinates"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "travellers", force: :cascade do |t|
     t.string "name"
     t.integer "age"
@@ -93,6 +103,7 @@ ActiveRecord::Schema.define(version: 2021_05_08_165809) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "activities", "locations"
   add_foreign_key "event_activities", "activities"
   add_foreign_key "event_activities", "events"
   add_foreign_key "events", "agents"
