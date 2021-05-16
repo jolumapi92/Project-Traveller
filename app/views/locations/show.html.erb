@@ -1,5 +1,7 @@
 <h1>Bienvenido a <%= @location.name %></h1>
 
 <% @location.activities.each do |activity| %>
-    <%= activity.name %>
+    <%= link_to location_activity_path(activity.location, activity) do %>
+        <%= activity.name %>
+    <% end %>
 <% end %>
