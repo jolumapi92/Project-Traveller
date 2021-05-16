@@ -1,0 +1,6 @@
+<h1>All my events</h1>
+<% @events.each do |event| %>
+    <%= link_to traveller_event_path(event.traveller, event) do %>
+        <%= event.location.name  %>
+    <% end %>
+<% end %>

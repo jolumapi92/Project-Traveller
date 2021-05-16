@@ -6,7 +6,7 @@
 
 <% elsif traveller_signed_in? %>
   <h1><%= current_traveller.name %></h1>
-
+  <%= link_to "Crear un nuevo evento", new_traveller_event_path(current_traveller) %>
 <% else %>
   <section class="bg-home">
     <div class="main-container">

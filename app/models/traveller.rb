@@ -5,4 +5,5 @@ class Traveller < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :events
+  accepts_nested_attributes_for :events
 end

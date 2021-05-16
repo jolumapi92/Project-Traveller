@@ -1,0 +1,15 @@
+<h1>Creating my newest memory</h1>
+
+<p>What are you planning on doing ? <%= current_traveller.name %></p>
+
+<%= simple_form_for [@traveller, @event] do |t| %>
+    <%= t.input :start %>
+    <%= t.input :end %>
+    <%= t.input :hotel %>
+    <%= t.input :city %>
+    <%= t.input :transport %>
+    <%= t.input :occupants %>
+    <%= t.association :agent %>
+    <%= t.association :location %>
+    <%= t.submit "Create an event" %>
+<% end %>
