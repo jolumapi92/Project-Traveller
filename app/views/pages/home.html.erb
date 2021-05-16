@@ -15,6 +15,10 @@
 </section>
 <section class="bg-home3">
   <h1><em>All your activities and passes on your palm</em></h1>
+  <% @activities = Activity.all %>
+  <% @activities.each do |activity| %>
+  <%= activity.name %>
+  <% end %>
 </section>
 
 
