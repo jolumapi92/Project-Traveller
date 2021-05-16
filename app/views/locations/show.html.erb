@@ -1,0 +1,5 @@
+<h1>Bienvenido a <%= @location.name %></h1>
+
+<% @location.activities.each do |activity| %>
+    <%= activity.name %>
+<% end %>
