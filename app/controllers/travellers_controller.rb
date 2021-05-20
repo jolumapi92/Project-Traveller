@@ -9,6 +9,6 @@ class TravellersController < ApplicationController
     private
 
     def traveller_params
-        params.require(:traveller).permit(events_attributes: [:start, :end, :hotel, :city, :transport, :occupants, :id, :agent_id)
+        params.require(:traveller).permit(events_attributes: [:start, :end, :hotel, :city, :transport, :occupants, :id, :agent_id, Unpermitted parameter: activity_ids:[])
     end
 end

@@ -5,4 +5,6 @@ class Event < ApplicationRecord
 
   has_many :event_activities
   has_many :activities, through: :event_activities
+
+  accepts_nested_attributes_for :activities
 end

@@ -24,9 +24,16 @@ class EventsController < ApplicationController
         end 
     end
 
+    def update
+        @event = Event.find(params[:id])
+        @event.update(event_params)
+
+        render :show
+    end
+
     private
 
     def event_params
-        params.require(:event).permit(:start, :end, :hotel, :city, :transport, :occupants, :agent_id, :location_id)
+        params.require(:event).permit(:start, :end, :hotel, :city, :transport, :occupants, :agent_id, :location_id, activity_ids:[], activities_attributes: [:id, :name, :place])
     end
 end
