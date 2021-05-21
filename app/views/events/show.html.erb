@@ -16,16 +16,6 @@
   <%= f.button :submit %>
 <% end %>
 
-<%= simple_form_for [@event.traveller ,@event] do |f| %>
-          <%=  f.simple_fields_for :activities do |activity| %>
-            <div class="p-2">
-              <%= activity.input :name, label: false %>
-              <%= activity.input :place, label: false %>
-              <div class="d-flex justify-content-center align-items-center">
-                <%= f.button :submit, "Actualizar", class: "btn-submit-forms-1" %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
+
 
 <%= javascript_pack_tag 'selecting_activity' %>
