@@ -5,6 +5,6 @@
     <%= t.input :category, collection: ['Food', 'Culture', 'Outdoor activity', 'Beach', 'SPA', 'Relax'], prompt: "Select a category" %>
     <%= t.input :place, placeholder: "Address" %>
     <%= t.input :points, collection: 1..20, prompt: "Select points" %>
-    <%= t.input :description %>
-    <%= t.submit "Create Activity" %>
+    <%= t.input :description, placeholder: "Imagine you are selling this activity" %>
+    <%= t.submit "Create Activity"  %>
 <% end %>
