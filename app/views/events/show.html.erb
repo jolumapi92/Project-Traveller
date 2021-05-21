@@ -4,12 +4,15 @@
 <% end %>
 
 <p>Mi itinerario de actividades:  </p>
-<ul>
+
 <% @event.activities.each do |activity| %>
-    <li><%= activity.name %></li>
-    <li class="pl-3"><%= activity.location.name %></li>
+    <p><%= activity.name %></p>
+    <p><%= activity.category %></p>
+    <p><%= activity.place %></p>
+    <p><%= activity.points %></p>
+    <p><%= activity.description %></p>
 <% end %>
-</ul>
+
 
 <%= simple_form_for [@event.traveller ,@event] do |f| %>
   <%= f.association :activities, as: :check_boxes %>
