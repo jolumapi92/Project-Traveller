@@ -1,9 +1,10 @@
-<h1>Crear una actividad</h1>
+<h1>Create an activity in <%= @location.name %></h1>
 
 <%= simple_form_for [@location, @activity] do |t| %>
     <%= t.input :name, placeholder: "Acapulco + The name of the activity", label: "Location + Activity" %>
     <%= t.input :category, collection: ['Food', 'Culture', 'Outdoor activity', 'Beach', 'SPA', 'Relax'], prompt: "Select a category" %>
     <%= t.input :place, placeholder: "Address" %>
     <%= t.input :points, collection: 1..20, prompt: "Select points" %>
-    <%= t.submit "Create Location" %>
+    <%= t.input :description %>
+    <%= t.submit "Create Activity" %>
 <% end %>
